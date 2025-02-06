@@ -37,7 +37,7 @@ channel_info_html = '<p><b>List of channels in this EEG file: </b></p>'+', '.joi
 
 report.add_html(title="Channels", html=channel_info_html)
 # save mne/raw
-raw.save(os.path.join('out_dir','raw.fif'))
+raw.save(os.path.join('out_dir','raw.fif'), overwrite=True)
 
 # == SAVE REPORT ==
 report.save(os.path.join('out_dir','report.html'))
