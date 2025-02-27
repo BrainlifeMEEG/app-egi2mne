@@ -37,7 +37,17 @@ channel_info_html = '<p><b>List of channels in this EEG file: </b></p>'+', '.joi
 
 report.add_html(title="Channels", html=channel_info_html)
 # save mne/raw
-raw.save(os.path.join('out_dir','raw.fif'))
+raw.save(os.path.join('out_dir','raw.fif'), overwrite=True)
 
 # == SAVE REPORT ==
 report.save(os.path.join('out_dir','report.html'))
+
+# create a product.json file to show info in the process output
+info = raw.info
+dict_json_product = {'brainlife': []}
+
+info = str(info)
+dict_json_product['brainlife'].append({'type': 'info', 'msg': info})
+
+with open('product.json', 'w') as outfile:
+    json.dump(dict_json_product, outfile)
