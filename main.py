@@ -40,7 +40,7 @@ report.add_html(title="Channels", html=channel_info_html)
 raw.save(os.path.join('out_dir','raw.fif'), overwrite=True)
 
 # == SAVE REPORT ==
-report.save(os.path.join('out_dir','report.html'))
+report.save(os.path.join('out_dir','report.html'), overwrite=True)
 
 # create a product.json file to show info in the process output
 info = raw.info
