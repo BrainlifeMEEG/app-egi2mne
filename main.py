@@ -20,8 +20,8 @@ with open(__location__+'/config.json') as config_json:
 
 # if there's a "tags" field in the _inputs key of config.json, collect it in a list
 if '_inputs' in config:
-    if 'tags' in config['_inputs']:
-        tags = config['_inputs']['tags']
+    if 'tags' in config['_inputs'][0]:
+        tags = config['_inputs'][0]['tags']
         print(tags)
 
 fname = config['egi']
