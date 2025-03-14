@@ -18,10 +18,11 @@ __location__ = os.path.realpath(
 with open(__location__+'/config.json') as config_json:
     config = json.load(config_json)
 
-# if there's a "tags" field in config.json, collect it in a list
-if 'tags' in config:
-    tags = config['tags']
-    print(tags)
+# if there's a "tags" field in the _inputs key of config.json, collect it in a list
+if '_inputs' in config:
+    if 'tags' in config['_inputs']:
+        tags = config['_inputs']['tags']
+        print(tags)
 
 fname = config['egi']
 
