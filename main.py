@@ -22,7 +22,6 @@ with open(__location__+'/config.json') as config_json:
 if '_inputs' in config:
     if 'tags' in config['_inputs'][0]:
         tags = config['_inputs'][0]['tags']
-        print(tags)
 
 fname = config['egi']
 
@@ -57,7 +56,6 @@ dict_json_product['brainlife'].append({'type': 'info', 'msg': info})
 # if in_tags is not empty, add it to the product.json
 if 'tags' in locals():
     dict_json_product['tags'] = tags
-    print(tags)
     
 
 with open('product.json', 'w') as outfile:
