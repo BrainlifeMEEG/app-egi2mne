@@ -18,11 +18,6 @@ __location__ = os.path.realpath(
 with open(__location__+'/config.json') as config_json:
     config = json.load(config_json)
 
-# if there's a "tags" field in the _inputs key of config.json, collect it in a list
-if '_inputs' in config:
-    if 'tags' in config['_inputs'][0]:
-        tags = config['_inputs'][0]['tags']
-
 fname = config['egi']
 
 include_raw = config['include']
@@ -53,9 +48,6 @@ dict_json_product = {'brainlife': []}
 info = str(info)
 dict_json_product['brainlife'].append({'type': 'info', 'msg': info})
 
-# if in_tags is not empty, add it to the product.json
-if 'tags' in locals():
-    dict_json_product['tags'] = tags
     
 
 with open('product.json', 'w') as outfile:
