@@ -89,6 +89,7 @@ else:
 events_as_annotations = config.get('events_as_annotations', True)
 
 # Read EGI raw data
+print(f"Reading EGI file: {fname}", flush=True)
 raw = mne.io.read_raw_egi(fname, eog=eog, misc=misc, include=include,
                           events_as_annotations=events_as_annotations)
 
@@ -120,6 +121,7 @@ else:
     bads = []
 
 # == CREATE REPORT ==
+print("Generating report and PSD plot...", flush=True)
 report = mne.Report(title='EGI to MNE Conversion Report')
 report.add_raw(raw=raw, title='Raw Data')
 
