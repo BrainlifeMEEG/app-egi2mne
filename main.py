@@ -131,6 +131,8 @@ report.add_html(title='Channels', html=channel_info_html)
 
 # == SAVE DATA ==
 raw.save(os.path.join('out_dir', 'raw.fif'), overwrite=True)
+
+print("Saving report and computing PSD plot...", flush=True)
 report.save(os.path.join('out_report', 'report.html'), overwrite=True, open_browser=False, verbose=False)
 
 # == CREATE PSD PLOT ==
