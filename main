@@ -9,8 +9,8 @@
 #
 # Author: Guiomar Niso
 
-# make output directory
-mkdir -p out_dir
+set -e
+set -x
 
 #python main.py
 #
@@ -20,5 +20,4 @@ mkdir -p out_dir
 # message right before each step that's slow enough to otherwise leave a
 # stale status behind.
 singularity exec docker://brainlifemeeg/mne:1.12.1 python3 -u main.py
-
 
